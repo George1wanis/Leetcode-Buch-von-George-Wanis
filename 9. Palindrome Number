@@ -12,3 +12,46 @@ Now the question becomes whether a NONE palindrome == its reverse if we do NOT d
 🔶Impossible to solve without extra space. Always need space for constants, variables or whatever. Recursion calls will take space for call stack.
 If you are talking about constant space, then even declaring a string/stack will take constant space.
 (In fact, at most (log(10, INT_MAX) * sizeof char), which is no worse than declaring an integer or more). Actually, even recursion will take constant space.
+
+غلب حماري
+https://www.youtube.com/watch?v=yubRKwixN-U
+
+121%10 = 1
+121/100 = 1
+121/10 = 12
+121%100 = 21
+21/10 = 2
+So think of it like this: you're a cook, and you wanna chop the unwanted pieces off.
+
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0) return false; // this must be written first before the next line
+        long long div = 1;
+        while(x >= 10 * div) div*= 10; // the div should be multiplied by 10 not incremented
+        while(x){
+            if(x%10 != x/div) return false;
+            x = (x%div)/10; // do not switch the div with the 10 
+            div /= 100;
+        }
+        return true;
+    }
+};
+
+⚡ Alternative (cleaner & safer)
+The reverse-half method avoids div entirely and overflow risks — tell me if you want that version too.
+Nice attempt though — this is exactly the right direction for an O(1) space solution 👌
+
+⚡ Best practice (LeetCode favorite)
+Avoid div entirely → reverse half the number
+No overflow, cleaner, faster.
+
+bool isPalindrome(int x) {
+    if (x < 0 || (x % 10 == 0 && x != 0)) return false;
+    int rev = 0;
+    while (x > rev) {
+        rev = rev * 10 + x % 10;
+        x /= 10;
+    }
+    return (x == rev || x == rev / 10);
+}
