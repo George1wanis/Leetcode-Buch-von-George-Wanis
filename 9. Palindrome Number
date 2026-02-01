@@ -1,0 +1,14 @@
+https://leetcode.com/problems/palindrome-number/description/
+
+🔶 One of the comments said: "A small hint for negative numbers: return false." So I did this, next, i beleieve i should be able to know the length of the integer, like how many digits I do have.
+🔶 Another comment said: "Reversing the number and checking whether it equals the un-reversed version is a test of your coding ability, and might appear in a basic coding interview.
+The 'don't convert to a string" variation will NEVER appear in an interview and is a bad question. Here's why:
+You solved the problem by stringifying it. Why overthink things and use complicated and hard-to-debug math?
+The "algorithmic" component of this is NOT part of a broader problem-solving paradigm in comptuer science (think of dynamic programming, graph algorithms, etc). Rather,
+it's a one-off math trick."
+🔶Another said: If a number is a palindrome, its reverse equals itself. Which means its reverse is NOT overflow!!!
+So that ' reversed integer might overflow' doesn't matter at all, since a overlowed number isn't a palindrome.
+Now the question becomes whether a NONE palindrome == its reverse if we do NOT deal with overflow.
+🔶Impossible to solve without extra space. Always need space for constants, variables or whatever. Recursion calls will take space for call stack.
+If you are talking about constant space, then even declaring a string/stack will take constant space.
+(In fact, at most (log(10, INT_MAX) * sizeof char), which is no worse than declaring an integer or more). Actually, even recursion will take constant space.
