@@ -1,3 +1,5 @@
+Sunday 1 February 2025
+---
 https://leetcode.com/problems/palindrome-number/description/
 
 🔶 One of the comments said: "A small hint for negative numbers: return false." So I did this, next, i beleieve i should be able to know the length of the integer, like how many digits I do have.
